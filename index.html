@@ -1,0 +1,1261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+
+<title>Adeeb & Maria — Wedding Invitation</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Noto+Nastaliq+Urdu:wght@400;500&display=swap');
+
+:root{
+  --cream:#f7f0e1;
+  --sage:#9aaa8d;
+  --dark:#354633;
+  --gold:#c6a565;
+  --brown:#80683e;
+}
+
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:var(--cream);
+  color:#665a48;
+  font-family:"Cormorant Garamond",Georgia,serif;
+}
+
+button{
+  font:inherit;
+}
+
+/* =========================
+   OPENING DOOR
+========================= */
+
+#door{
+  position:fixed;
+  z-index:1000;
+  inset:0;
+  background:var(--sage);
+  overflow:hidden;
+  transition:opacity .7s ease;
+}
+
+.doorPanel{
+  position:absolute;
+  top:0;
+  width:50%;
+  height:100%;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #879a7d 0 3px,
+      #9aaa8d 3px 42px,
+      #a6b497 42px 46px
+    );
+  box-shadow:inset 0 0 40px #30402e55;
+  transition:transform 1.05s cubic-bezier(.65,0,.2,1);
+}
+
+.doorPanel:after{
+  content:"";
+  position:absolute;
+  inset:26px;
+  border:1px solid #e8eee566;
+}
+
+.left{
+  left:0;
+  border-right:2px solid var(--gold);
+}
+
+.right{
+  right:0;
+  border-left:2px solid var(--gold);
+}
+
+#door.open .left{
+  transform:translateX(-105%);
+}
+
+#door.open .right{
+  transform:translateX(105%);
+}
+
+#door.open{
+  pointer-events:none;
+  opacity:0;
+}
+
+.badge{
+  position:absolute;
+  z-index:4;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:210px;
+  height:285px;
+  border-radius:50%;
+  border:12px solid var(--gold);
+  background:var(--cream);
+  box-shadow:0 14px 35px #26332255;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  cursor:pointer;
+}
+
+.badge:active{
+  transform:translate(-50%,-50%) scale(.97);
+}
+
+.initials{
+  font-size:54px;
+  font-style:italic;
+  color:#8b6e39;
+}
+
+.tap{
+  font-size:13px;
+  letter-spacing:4px;
+  margin-top:14px;
+  color:#74654d;
+}
+
+.heartTiny{
+  color:var(--brown);
+  font-size:21px;
+}
+
+/* =========================
+   LANGUAGE
+========================= */
+
+.lang{
+  position:fixed;
+  z-index:1100;
+  left:24px;
+  bottom:20px;
+  display:flex;
+  overflow:hidden;
+  border-radius:28px;
+  box-shadow:0 6px 20px #0002;
+}
+
+.lang button{
+  border:0;
+  background:#fff;
+  color:#555;
+  padding:11px 20px;
+}
+
+.lang .active{
+  background:var(--dark);
+  color:#fff;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main{
+  opacity:0;
+  transition:opacity .8s ease;
+}
+
+main.ready{
+  opacity:1;
+}
+
+.section{
+  min-height:100svh;
+  padding:65px 18px 95px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.invite{
+  background:var(--cream);
+}
+
+.inner{
+  width:min(560px,100%);
+  padding-top:35px;
+}
+
+.arabic{
+  font-family:"Noto Nastaliq Urdu",serif;
+  direction:rtl;
+  color:#866d3e;
+  font-size:28px;
+  line-height:2;
+}
+
+.kicker{
+  font-size:25px;
+  font-style:italic;
+  margin:10px 0;
+}
+
+.rule{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:15px;
+  color:var(--gold);
+  margin:14px 0;
+}
+
+.rule:before,
+.rule:after{
+  content:"";
+  width:105px;
+  height:1px;
+  background:var(--gold);
+}
+
+.name{
+  font-size:67px;
+  line-height:.9;
+  font-style:italic;
+  color:#967742;
+  margin:20px 0 3px;
+}
+
+.sub{
+  font-size:21px;
+  color:#8f887b;
+}
+
+.amp{
+  font-size:38px;
+  color:#b49358;
+}
+
+.date{
+  font-size:19px;
+  letter-spacing:4px;
+  color:#7d6944;
+  margin:25px 0;
+}
+
+.urdu{
+  font-family:"Noto Nastaliq Urdu",serif;
+  direction:rtl;
+  font-size:19px;
+  line-height:2;
+}
+
+.scroll{
+  margin-top:55px;
+  letter-spacing:4px;
+  color:#8d8676;
+  font-size:14px;
+}
+
+/* =========================
+   SCRATCH SECTION
+========================= */
+
+.scratchSection{
+  background:var(--cream);
+  flex-direction:column;
+}
+
+.scratchTitle{
+  font-size:51px;
+  font-style:italic;
+  font-weight:500;
+  color:var(--dark);
+  margin:10px 0 5px;
+}
+
+.instruction{
+  font-size:19px;
+  color:#8f8778;
+  margin:7px 0 18px;
+}
+
+/*
+   IMPORTANT:
+   The scratch area is ONLY the heart.
+   No rectangular scratch layer is visible.
+*/
+
+.heartBox{
+  position:relative;
+  width:320px;
+  height:320px;
+  max-width:90vw;
+  margin:0 auto;
+}
+
+/* HEART BEHIND SCRATCH */
+
+.revealHeart{
+  position:absolute;
+  width:220px;
+  height:220px;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-42%) rotate(-45deg);
+  background:#94a78e;
+  border-radius:24px 0 24px 0;
+  filter:drop-shadow(0 10px 18px #59665022);
+}
+
+.revealHeart:before,
+.revealHeart:after{
+  content:"";
+  position:absolute;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  background:#94a78e;
+}
+
+.revealHeart:before{
+  top:-110px;
+  left:0;
+}
+
+.revealHeart:after{
+  left:110px;
+  top:0;
+}
+
+/* TEXT INSIDE HEART */
+
+.revealText{
+  position:absolute;
+  z-index:2;
+
+  width:230px;
+  height:170px;
+
+  left:50%;
+  top:50%;
+
+  transform:translate(-50%,-30%);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+
+  color:var(--dark);
+  pointer-events:none;
+
+  text-align:center;
+}
+
+.revealDate{
+  font-size:27px;
+  font-style:italic;
+  color:#f7f0e1;
+  line-height:1.1;
+}
+
+.revealTime{
+  font-size:23px;
+  margin-top:6px;
+  color:#f7f0e1;
+}
+
+.venue{
+  font-size:16px;
+  line-height:1.3;
+  margin-top:6px;
+  color:#f7f0e1;
+}
+
+/* SCRATCH CANVAS */
+
+#scratch{
+  position:absolute;
+  z-index:3;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+
+  touch-action:none;
+  cursor:grab;
+}
+
+#scratch:active{
+  cursor:grabbing;
+}
+
+.save{
+  border:0;
+  background:var(--dark);
+  color:#fff;
+  border-radius:30px;
+  padding:14px 30px;
+  letter-spacing:2px;
+  box-shadow:0 8px 24px #35463344;
+  margin-top:5px;
+}
+
+/* =========================
+   DETAILS
+========================= */
+
+.details{
+  background:var(--cream);
+  flex-direction:column;
+}
+
+.details h2{
+  font-size:50px;
+  font-style:italic;
+  color:var(--dark);
+  font-weight:500;
+}
+
+.detailsBox{
+  font-size:20px;
+  line-height:1.8;
+  border-top:1px solid var(--gold);
+  border-bottom:1px solid var(--gold);
+  padding:24px;
+}
+
+.map{
+  display:inline-block;
+  background:var(--dark);
+  color:#fff;
+  text-decoration:none;
+  border-radius:28px;
+  padding:12px 24px;
+  margin-top:20px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:420px){
+
+  .name{
+    font-size:57px;
+  }
+
+  .scratchTitle{
+    font-size:45px;
+  }
+
+  .badge{
+    width:190px;
+    height:260px;
+  }
+
+  .heartBox{
+    width:300px;
+    height:300px;
+  }
+
+  .revealHeart{
+    width:205px;
+    height:205px;
+  }
+
+  .revealHeart:before,
+  .revealHeart:after{
+    width:205px;
+    height:205px;
+  }
+
+  .revealHeart:before{
+    top:-102px;
+  }
+
+  .revealHeart:after{
+    left:102px;
+  }
+
+  .revealDate{
+    font-size:25px;
+  }
+
+  .revealTime{
+    font-size:21px;
+  }
+
+  .venue{
+    font-size:15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     OPENING SCREEN
+========================= -->
+
+<div id="door">
+
+  <div class="doorPanel left"></div>
+  <div class="doorPanel right"></div>
+
+  <button class="badge" id="openDoor" type="button">
+
+    <div class="heartTiny">♥</div>
+
+    <div class="initials">
+      A <span style="font-size:28px">♥</span> M
+    </div>
+
+    <div
+      class="tap"
+      data-en="TAP TO OPEN"
+      data-ur="کھولنے کے لیے دبائیں">
+      TAP TO OPEN
+    </div>
+
+  </button>
+
+</div>
+
+
+<!-- =========================
+     LANGUAGE BUTTON
+========================= -->
+
+<div class="lang">
+  <button id="en" class="active">English</button>
+  <button id="ur">اردو</button>
+</div>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main id="main">
+
+  <!-- INVITATION -->
+
+  <section class="section invite" id="invite">
+
+    <div class="inner">
+
+      <div class="arabic">
+        بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ
+      </div>
+
+      <div class="heartTiny">♥</div>
+
+      <div
+        class="kicker"
+        data-en="We're getting married"
+        data-ur="ہم شادی کر رہے ہیں">
+        We're getting married
+      </div>
+
+      <div class="rule">♥</div>
+
+      <div class="name">Adeeb</div>
+      <div class="sub">Sardar</div>
+
+      <div class="amp">&amp;</div>
+
+      <div class="name">Maria</div>
+      <div class="sub">Liaqat</div>
+
+      <div class="date">
+        01–02 OCTOBER 2026
+      </div>
+
+      <div
+        class="urdu"
+        data-en="Your presence will make our celebration even more special and memorable."
+        data-ur="آپ کی شرکت ہماری خوشیوں کو مزید خاص اور یادگار بنا دے گی۔">
+        Your presence will make our celebration even more special and memorable.
+      </div>
+
+      <div class="rule">♥</div>
+
+      <div class="scroll">
+        SCROLL
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       SCRATCH TO REVEAL
+  ========================= -->
+
+  <section class="section scratchSection" id="scratchSection">
+
+    <h1
+      class="scratchTitle"
+      data-en="Scratch to Reveal"
+      data-ur="راز کھولنے کے لیے رگڑیں">
+      Scratch to Reveal
+    </h1>
+
+    <div class="rule">♥</div>
+
+    <div
+      class="instruction"
+      data-en="☝ Rub the heart with your finger"
+      data-ur="☝ اپنی انگلی سے دل کو رگڑیں">
+      ☝ Rub the heart with your finger
+    </div>
+
+
+    <!-- HEART ONLY -->
+
+    <div class="heartBox">
+
+      <!-- REVEALED HEART -->
+
+      <div class="revealHeart"></div>
+
+
+      <!-- TEXT THAT APPEARS AFTER SCRATCH -->
+
+      <div class="revealText">
+
+        <div class="revealDate">
+          01–02 October 2026
+        </div>
+
+        <div class="revealTime">
+          2:00 PM
+        </div>
+
+        <div class="venue">
+          Phagwar Gahi, Tarkundi, Nakyal,<br>
+          Azad Kashmir
+        </div>
+
+      </div>
+
+
+      <!-- SCRATCH LAYER -->
+
+      <canvas id="scratch"></canvas>
+
+    </div>
+
+
+    <button class="save" id="save">
+      ▣ &nbsp; SAVE THE DATE
+    </button>
+
+  </section>
+
+
+  <!-- =========================
+       DETAILS
+  ========================= -->
+
+  <section class="section details" id="details">
+
+    <h2>
+      Wedding Details
+    </h2>
+
+    <div class="heartTiny">♥</div>
+
+    <div class="detailsBox">
+
+      <b>Sardar Adeeb &amp; Maria Liaqat</b>
+      <br>
+
+      01–02 October 2026
+      <br>
+
+      2:00 PM
+      <br>
+
+      Phagwar Gahi, Tarkundi, Nakyal, Azad Kashmir
+
+    </div>
+
+    <a
+      class="map"
+      target="_blank"
+      href="https://www.google.com/maps/search/?api=1&query=Phagwar%20Gahi%2C%20Tarkundi%2C%20Nakyal%2C%20Azad%20Kashmir">
+      OPEN LOCATION
+    </a>
+
+  </section>
+
+</main>
+
+
+<script>
+
+(function(){
+
+  /* =========================
+     OPEN DOOR
+  ========================= */
+
+  var door = document.getElementById('door');
+  var main = document.getElementById('main');
+
+  document.getElementById('openDoor').onclick = function(){
+
+    door.classList.add('open');
+    main.classList.add('ready');
+
+    setTimeout(function(){
+
+      document
+        .getElementById('invite')
+        .scrollIntoView({
+          behavior:'smooth'
+        });
+
+    },650);
+
+  };
+
+
+  /* =========================
+     LANGUAGE
+  ========================= */
+
+  var en = document.getElementById('en');
+  var ur = document.getElementById('ur');
+
+  function language(l){
+
+    en.classList.toggle('active',l === 'en');
+    ur.classList.toggle('active',l === 'ur');
+
+    document
+      .querySelectorAll('[data-en]')
+      .forEach(function(x){
+
+        x.textContent =
+          x.getAttribute('data-' + l);
+
+      });
+
+  }
+
+  en.onclick = function(){
+    language('en');
+  };
+
+  ur.onclick = function(){
+    language('ur');
+  };
+
+
+  /* =========================
+     HEART SCRATCH
+  ========================= */
+
+  var canvas = document.getElementById('scratch');
+  var ctx = canvas.getContext('2d');
+
+  var drawing = false;
+  var done = false;
+
+
+  /*
+     PERFECT HEART PATH
+  */
+
+  function heartPath(ctx,w,h){
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+      w * 0.50,
+      h * 0.91
+    );
+
+    ctx.bezierCurveTo(
+      w * 0.43,
+      h * 0.83,
+      w * 0.14,
+      h * 0.61,
+      w * 0.12,
+      h * 0.39
+    );
+
+    ctx.bezierCurveTo(
+      w * 0.10,
+      h * 0.19,
+      w * 0.29,
+      h * 0.08,
+      w * 0.42,
+      h * 0.20
+    );
+
+    ctx.bezierCurveTo(
+      w * 0.47,
+      h * 0.24,
+      w * 0.49,
+      h * 0.30,
+      w * 0.50,
+      h * 0.34
+    );
+
+    ctx.bezierCurveTo(
+      w * 0.51,
+      h * 0.30,
+      w * 0.53,
+      h * 0.24,
+      w * 0.58,
+      h * 0.20
+    );
+
+    ctx.bezierCurveTo(
+      w * 0.71,
+      h * 0.08,
+      w * 0.90,
+      h * 0.19,
+      w * 0.88,
+      h * 0.39
+    );
+
+    ctx.bezierCurveTo(
+      w * 0.86,
+      h * 0.61,
+      w * 0.57,
+      h * 0.83,
+      w * 0.50,
+      h * 0.91
+    );
+
+    ctx.closePath();
+
+  }
+
+
+  /* =========================
+     SETUP SCRATCH
+  ========================= */
+
+  function setup(){
+
+    var rect = canvas.getBoundingClientRect();
+
+    var dpr = window.devicePixelRatio || 1;
+
+    var w = rect.width;
+    var h = rect.height;
+
+    canvas.width = Math.floor(w * dpr);
+    canvas.height = Math.floor(h * dpr);
+
+    ctx.setTransform(
+      dpr,
+      0,
+      0,
+      dpr,
+      0,
+      0
+    );
+
+    ctx.clearRect(0,0,w,h);
+
+    /*
+       CLIP EVERYTHING TO HEART.
+       NOTHING OUTSIDE HEART CAN BE SCRATCHED.
+    */
+
+    heartPath(ctx,w,h);
+
+    ctx.save();
+
+    ctx.clip();
+
+    /*
+       HEART SCRATCH COVER
+    */
+
+    ctx.fillStyle = '#91a18b';
+
+    ctx.fillRect(
+      0,
+      0,
+      w,
+      h
+    );
+
+
+    /*
+       SMALL TEXTURE
+    */
+
+    for(var i = 0; i < 280; i++){
+
+      ctx.fillStyle =
+        'rgba(244,244,224,' +
+        (0.12 + Math.random() * 0.35) +
+        ')';
+
+      ctx.beginPath();
+
+      ctx.arc(
+        Math.random() * w,
+        Math.random() * h,
+        Math.random() * 3 + 0.5,
+        0,
+        Math.PI * 2
+      );
+
+      ctx.fill();
+
+    }
+
+
+    /*
+       CENTER MESSAGE
+    */
+
+    ctx.fillStyle = '#eef0df';
+
+    ctx.font = '18px Georgia';
+
+    ctx.textAlign = 'center';
+
+    ctx.textBaseline = 'middle';
+
+    ctx.fillText(
+      'RUB TO REVEAL',
+      w / 2,
+      h / 2
+    );
+
+
+    ctx.restore();
+
+  }
+
+
+  /* =========================
+     ERASE / SCRATCH
+  ========================= */
+
+  function erase(clientX,clientY){
+
+    if(done) return;
+
+    var rect =
+      canvas.getBoundingClientRect();
+
+    var x =
+      clientX - rect.left;
+
+    var y =
+      clientY - rect.top;
+
+
+    /*
+       Only erase inside heart.
+    */
+
+    ctx.save();
+
+    heartPath(
+      ctx,
+      rect.width,
+      rect.height
+    );
+
+    ctx.clip();
+
+    ctx.globalCompositeOperation =
+      'destination-out';
+
+
+    /*
+       Soft scratch brush
+    */
+
+    var gradient =
+      ctx.createRadialGradient(
+        x,
+        y,
+        3,
+        x,
+        y,
+        34
+      );
+
+    gradient.addColorStop(
+      0,
+      'rgba(0,0,0,1)'
+    );
+
+    gradient.addColorStop(
+      .75,
+      'rgba(0,0,0,.85)'
+    );
+
+    gradient.addColorStop(
+      1,
+      'rgba(0,0,0,0)'
+    );
+
+    ctx.fillStyle = gradient;
+
+    ctx.beginPath();
+
+    ctx.arc(
+      x,
+      y,
+      34,
+      0,
+      Math.PI * 2
+    );
+
+    ctx.fill();
+
+    ctx.restore();
+
+
+    /*
+       Check how much of the scratch
+       layer has been removed.
+    */
+
+    checkReveal();
+
+  }
+
+
+  function checkReveal(){
+
+    var rect =
+      canvas.getBoundingClientRect();
+
+    /*
+       Check pixels only from the canvas.
+    */
+
+    var image =
+      ctx.getImageData(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      ).data;
+
+    var transparent = 0;
+    var total = 0;
+
+
+    /*
+       Sample every 12th pixel for
+       better mobile performance.
+    */
+
+    for(
+      var i = 3;
+      i < image.length;
+      i += 48
+    ){
+
+      total++;
+
+      if(image[i] < 45){
+        transparent++;
+      }
+
+    }
+
+
+    /*
+       Once enough is scratched,
+       remove the entire heart cover.
+    */
+
+    if(
+      total > 0 &&
+      transparent / total > 0.43
+    ){
+
+      done = true;
+
+      canvas.style.opacity = '0';
+
+      canvas.style.pointerEvents = 'none';
+
+    }
+
+  }
+
+
+  /* =========================
+     MOUSE
+  ========================= */
+
+  canvas.addEventListener(
+    'mousedown',
+    function(e){
+
+      drawing = true;
+
+      erase(
+        e.clientX,
+        e.clientY
+      );
+
+    }
+  );
+
+
+  window.addEventListener(
+    'mouseup',
+    function(){
+
+      drawing = false;
+
+    }
+  );
+
+
+  canvas.addEventListener(
+    'mousemove',
+    function(e){
+
+      if(drawing){
+
+        erase(
+          e.clientX,
+          e.clientY
+        );
+
+      }
+
+    }
+  );
+
+
+  /* =========================
+     TOUCH
+  ========================= */
+
+  canvas.addEventListener(
+    'touchstart',
+    function(e){
+
+      drawing = true;
+
+      var touch =
+        e.touches[0];
+
+      erase(
+        touch.clientX,
+        touch.clientY
+      );
+
+      e.preventDefault();
+
+    },
+    {
+      passive:false
+    }
+  );
+
+
+  canvas.addEventListener(
+    'touchmove',
+    function(e){
+
+      if(drawing){
+
+        var touch =
+          e.touches[0];
+
+        erase(
+          touch.clientX,
+          touch.clientY
+        );
+
+        e.preventDefault();
+
+      }
+
+    },
+    {
+      passive:false
+    }
+  );
+
+
+  canvas.addEventListener(
+    'touchend',
+    function(){
+
+      drawing = false;
+
+    }
+  );
+
+
+  /* =========================
+     RESIZE
+  ========================= */
+
+  window.addEventListener(
+    'resize',
+    function(){
+
+      /*
+         Don't reset after the user
+         has already scratched.
+      */
+
+      if(!done){
+        setup();
+      }
+
+    }
+  );
+
+
+  setup();
+
+
+  /* =========================
+     SAVE THE DATE
+  ========================= */
+
+  document
+    .getElementById('save')
+    .onclick = function(){
+
+      document
+        .getElementById('details')
+        .scrollIntoView({
+          behavior:'smooth'
+        });
+
+    };
+
+})();
+
+</script>
+
+</body>
+  </html>
